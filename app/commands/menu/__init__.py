@@ -4,7 +4,7 @@ from app.commands import Command
 class MenuCommand(Command):
     def __init__(self):
         # Initialize the list of commands
-        self.commands = ['Discord', 'exit', 'goodbye', 'greet']
+        self.commands = ['Discord', 'exit', 'goodbye', 'greet', 'calendar']
     
     def execute(self):
         print('Menu')

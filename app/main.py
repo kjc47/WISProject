@@ -26,10 +26,10 @@ class CommandHandler:
 # Main function encapsulating the instantiation and execution logic
 def main():
     # Import the plugins
-    from pluggins.menu_plugin import MenuPlugin
-    from pluggins.discord_plugin import DiscordPlugin
-    from pluggins.email_plugin import EmailPlugin
-    from pluggins.calendar_plugin import CalendarPlugin
+    from app.pluggins.menu.menu_plugin import MenuPlugin
+    from app.pluggins.discord.discord_plugin import DiscordPlugin
+    from app.pluggins.email.email_plugin import EmailPlugin
+    from app.pluggins.calendar.calendar_plugin import CalendarPlugin
 
     # Instantiate the command handler
     command_handler = CommandHandler()

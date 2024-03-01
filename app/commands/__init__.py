@@ -10,17 +10,20 @@ class CommandHandler:
         self.commands = {}
 
     def register_command(self, command_name: str, command: Command):
+        if command_name in self.commands:
+            print(f"Warning: Command '{command_name}' is already registered and will be overwritten.")
         self.commands[command_name] = command
+        print(f"Command '{command_name}' registered successfully.")
+
+    def load_plugin(self, plugin):
+        plugin.register_commands(self)
+        print(f"Plugin '{plugin.__class__.__name__}' loaded successfully.")
 
     def execute_command(self, command_name: str):
-        """ Look before you leap (LBYL) - Use when its less likely to work
-        if command_name in self.commands:
-            self.commands[command_name].execute()
-        else:
-            print(f"No such command: {command_name}")
-        """
-        """Easier to ask for forgiveness than permission (EAFP) - Use when its going to most likely work"""
+        # Using EAFP (Easier to ask for forgiveness than permission) here as it's more Pythonic
         try:
             self.commands[command_name].execute()
+            print(f"Command '{command_name}' executed successfully.")
         except KeyError:
-            print(f"No such command: {command_name}")
+            print(f"No such command: '{command_name}'")
+

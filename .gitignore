@@ -2,3 +2,5 @@
 .coverage
 .pytest_cache
 *__pycache__
+# Inside .gitignore
+app/main.py
